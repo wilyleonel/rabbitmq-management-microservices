@@ -1,4 +1,4 @@
-module rabbit_mq_manager
+module github.com/wilyleonel/rabbitmq-management-microservices
 
 go 1.23.2
 
