@@ -64,6 +64,8 @@ func (cm *ConnectionManager) Connect() error {
 	return nil
 }
 
+
+
 // GetChannel retorna el canal actual
 func (cm *ConnectionManager) GetChannel() (*amqp.Channel, error) {
 	cm.mutex.RLock()
