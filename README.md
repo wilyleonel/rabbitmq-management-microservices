@@ -252,6 +252,8 @@ rabbitmqctl get_queue order_dlq
 
 ---
 
-## 📄 Licencia
+MIT License
 
-**MIT License** – ver el archivo `LICENSE` para más detalles.
+Copyright (c) 2025 wilyleonel
+
+Permission is hereby granted...
