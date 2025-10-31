@@ -8,7 +8,7 @@ Un paquete **robusto y flexible** para **Go** que gestiona **conexiones, produce
 
 ---
 
-## 📦 Instalación
+##  Instalación
 
 ```bash
 go get github.com/wilyleonel/rabbitmq-management-microservices
@@ -16,7 +16,7 @@ go get github.com/wilyleonel/rabbitmq-management-microservices
 
 ---
 
-## 🧩 Uso en el código
+##  Uso en el código
 
 ```go
 import "github.com/wilyleonel/rabbitmq-management-microservices"
@@ -24,19 +24,19 @@ import "github.com/wilyleonel/rabbitmq-management-microservices"
 
 ---
 
-## ✨ Características
+##  Características
 
-🔄 **Reconexión Automática** – Manejo automático de caídas de conexión
-🔁 **Sistema de Reintentos** – Backoff exponencial para errores temporales
-💀 **Dead Letter Queues** – Manejo elegante de mensajes fallidos
-🚀 **High Performance** – Configuración optimizada para alto rendimiento
-⚙️ **Configuración Flexible** – Adaptable a diferentes casos de uso
-🛡️ **Manejo Robusto de Errores** – Recuperación ante fallos
-🏗️ **Arquitectura Microservicios** – Diseñado para sistemas distribuidos
+ **Reconexión Automática** – Manejo automático de caídas de conexión
+ **Sistema de Reintentos** – Backoff exponencial para errores temporales
+ **Dead Letter Queues** – Manejo elegante de mensajes fallidos
+ **High Performance** – Configuración optimizada para alto rendimiento
+ **Configuración Flexible** – Adaptable a diferentes casos de uso
+ **Manejo Robusto de Errores** – Recuperación ante fallos
+ **Arquitectura Microservicios** – Diseñado para sistemas distribuidos
 
 ---
 
-## ⚡ Configuración Básica
+##  Configuración Básica
 
 ```go
 package main
@@ -66,7 +66,7 @@ func main() {
 
 ---
 
-## 🏗️ Crear Exchange y Queue
+##  Crear Exchange y Queue
 
 ```go
 exchangeConfig := rabbitmq_management_microservices.ExchangeConfig{
@@ -87,7 +87,7 @@ manager.BindQueue("email_queue", "notifications_exchange", "email")
 
 ---
 
-## 📤 Enviar Mensajes (Producer)
+##  Enviar Mensajes (Producer)
 
 ```go
 producer := manager.GetProducer()
@@ -110,7 +110,7 @@ err = producer.Publish(
 
 ---
 
-## 📥 Consumir Mensajes (Consumer)
+##  Consumir Mensajes (Consumer)
 
 ```go
 consumerConfig := rabbitmq_management_microservices.ConsumerConfig{
@@ -142,21 +142,21 @@ consumer := manager.CreateConsumer(
 consumer.Start()
 
 func handleEmailMessage(msg amqp.Delivery) error {
-    log.Printf("📨 Mensaje recibido: %s", string(msg.Body))
+    log.Printf(" Mensaje recibido: %s", string(msg.Body))
     return nil
 }
 ```
 
 ---
 
-## 🚀 Ejemplo Completo: Sistema de Microservicios
+##  Ejemplo Completo: Sistema de Microservicios
 
 Incluye **Orders**, **Notifications** y **Payments** simulando un entorno distribuido con reintentos y DLQs.
 *(Código completo como el mostrado anteriormente, manteniendo la estructura y funciones por servicio)*
 
 ---
 
-## 🔧 Configuración para Microservicios
+##  Configuración para Microservicios
 
 ```go
 retryConfig := rabbitmq_management_microservices.RetryConfig{
@@ -183,7 +183,7 @@ consumerConfig := rabbitmq_management_microservices.ConsumerConfig{
 
 ---
 
-## 🏗️ Patrones para Microservicios
+##  Patrones para Microservicios
 
 ### 1. Event Sourcing
 
@@ -211,7 +211,7 @@ producer.Publish("notifications", "user.updated", userEvent,
 
 ---
 
-## 📁 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 rabbitmq-management-microservices/
@@ -232,16 +232,16 @@ rabbitmq-management-microservices/
 
 ## 📋 Best Practices para Microservicios
 
-✅ Un exchange por dominio – Separar responsabilidades
-✅ Colas específicas por servicio – Aislamiento
-✅ Dead letters por microservicio – Debugging fácil
-✅ Tags descriptivos – Monitoreo efectivo
-✅ Headers para correlación – Tracing distribuido
-✅ Prefetch configurado – Balance de carga
+ Un exchange por dominio – Separar responsabilidades
+ Colas específicas por servicio – Aislamiento
+ Dead letters por microservicio – Debugging fácil
+ Tags descriptivos – Monitoreo efectivo
+ Headers para correlación – Tracing distribuido
+ Prefetch configurado – Balance de carga
 
 ---
 
-## 📊 Monitoreo
+##  Monitoreo
 
 ```bash
 rabbitmqctl list_queues name messages_ready messages_unacknowledged
